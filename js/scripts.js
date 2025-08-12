@@ -51,20 +51,23 @@ const dataInicial = new Date("2025-06-12T15:00:00"); // Altere essa data conform
     atualizarContador();
 
 const canvas = document.getElementById("meuCanvas");
-    const ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "red";
+ctx.save();
 
-    ctx.beginPath();
+ctx.translate(90, 90);
 
-    // Começa do ponto inferior
-    ctx.moveTo(300, 400);
+ctx.scale(0.7, 0.7);
 
-    // Lado esquerdo do coração
-    ctx.bezierCurveTo(100, 300, 100, 100, 300, 200);
+ctx.fillStyle = "red";
 
-    // Lado direito do coração
-    ctx.bezierCurveTo(500, 100, 500, 300, 300, 400);
+ctx.beginPath();
 
-    ctx.closePath();
-    ctx.fill();
+ctx.moveTo(300, 400);
+ctx.bezierCurveTo(100, 300, 100, 100, 300, 200);
+ctx.bezierCurveTo(500, 100, 500, 300, 300, 400);
+
+ctx.closePath();
+ctx.fill();
+
+ctx.restore();
